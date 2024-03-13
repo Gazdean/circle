@@ -1,7 +1,6 @@
-
 import GameSlider from "./GameSlider"
 
-export default function ShowSliders({buttonDisabled, setPlayerGreenDiameter, setPlayerRedDiameter, setPlayerBlueDiameter, handleSubmit}) {
+export default function ShowSliders({setPlayerGreenDiameter, setPlayerRedDiameter, setPlayerBlueDiameter}) {
     
     return(
         <div id="sliders-container">
