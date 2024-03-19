@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import circleLogo from "../../Assets/Images/circleLogo.png"
 import { useEffect, useState } from "react";
 
-export default function NavBar() {
+export default function NavBar({setDailyPlay}) {
     const [currentPath, setCurrentPath] = useState('');
     const location = useLocation();
 
@@ -22,15 +22,15 @@ export default function NavBar() {
   return (
   
         <nav className="navbar navbar-expand fixed-top bg-body-tertiary">
-            <div className="container-lg">
-                <Link className="navbar-brand" to="/">
-                    <img src={circleLogo} alt="Logo" width="30" height="30" className="d-inline-block align-text-center" />
+            <div className="container-sm">
+                <Link className="navbar-brand" style={{fontSize:13}} to="/">
+                    <img src={circleLogo} alt="Logo" width="20" height="20" className="d-inline-block align-text-center" />
                     SQUIRCLES
                 </Link>               
                 <div className="navbar-nav">
-                    <Link id="nav-home" className="nav-link" to="/" aria-current={currentPath === '/home' ? 'home page' : undefined}>{homeIcon}</Link>
-                    <Link id="nav-play" className="nav-link align-text-center" to="/play" aria-current={currentPath === '/play' ? 'play page' : undefined}>Practice</Link>
-                    <Link id="nav-stats" className="nav-link" to="/stats" aria-current={currentPath === '/stats' ? 'stats page' : undefined}>{statsIcon}</Link>
+                    <Link id="nav-home" className="nav-link p-1" to="/" aria-current={currentPath === '/home' ? 'home page' : undefined}>{homeIcon}</Link>
+                    <Link id="nav-play" className="nav-link m-" to="/play" aria-current={currentPath === '/play' ? 'play page' : undefined} onClick ={()=>{setDailyPlay(false)}}>Practice</Link>
+                    <Link id="nav-stats" className="nav-link p-1" to="/stats" aria-current={currentPath === '/stats' ? 'stats page' : undefined}>{statsIcon}</Link>
                 </div>
             </div>
         </nav>

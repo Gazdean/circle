@@ -8,8 +8,10 @@ export default function GameSlider({sliderColor, setPlayerDiameter}) {
   };
 
   return (
-    <Box sx={{ width: 345 }}>
-      <Slider size ={"medium"} defaultValue={0} onChange={handleChange} max={345} color={sliderColor}/>
-    </Box>
+    <div className="d-flex flex-column justify-content:center align-items-center pt-3 me-3">
+      <Box sx={{ width: "80vw", maxWidth:"400px"}}>
+        <Slider size ={"medium"} defaultValue={0} onChange={handleChange} max={330} color={sliderColor} className="m-0 p-2"/>
+      </Box>
+    </div>
   );
 }

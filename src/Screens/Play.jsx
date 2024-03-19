@@ -6,25 +6,52 @@ import { Link } from "react-router-dom";
 
 export default function Play(
   {
-    greenDiameter, setGreenDiameter,
-    redDiameter, setRedDiameter,
-    blueDiameter, setBlueDiameter,
+    // greenDiameter, setGreenDiameter, //delete
+    // redDiameter, setRedDiameter, //delete
+    // blueDiameter, setBlueDiameter, //delete
+
+    gameDiameters, setGameDiameters,
+
     playerGreenDiameter, setPlayerGreenDiameter,
     playerRedDiameter, setPlayerRedDiameter,
-    playerBlueDiameter, setPlayerBlueDiameter
+    playerBlueDiameter, setPlayerBlueDiameter,
+    dailyPlay, setDailyPlay
   }
 ){
-  const [counter, setCounter] = useState(7);
+  const [counter, setCounter] = useState(6);
   const [sliderVisibility, setSliderVisibility] = useState(true);
+  const [gameId, setGameId] =useState(null)
 
   useEffect(() => {
-    setGreenDiameter(Math.ceil(Math.random() * (370 - 40) + 40));
-    setRedDiameter(Math.ceil(Math.random() * (370 - 40) + 40));
-    setBlueDiameter(Math.ceil(Math.random() * (370 - 40) + 40));
+    if(!dailyPlay) {
+      let newGreenDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
+      let newRedDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
+      let newBlueDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
 
-    setPlayerGreenDiameter(0)
-    setPlayerRedDiameter(0)
-    setPlayerBlueDiameter(0)
+      if ( newRedDiameter > newGreenDiameter - 8 && newRedDiameter < newGreenDiameter + 8 )  newRedDiameter -= 15
+      if ( newBlueDiameter > newRedDiameter - 8 && newBlueDiameter < newRedDiameter + 8  ||  newBlueDiameter > newGreenDiameter - 8 && newBlueDiameter < newGreenDiameter + 8)  newBlueDiameter -= 22
+    
+      // setGreenDiameter(newGreenDiameter); //delete
+      // setRedDiameter(newRedDiameter); //delete
+      // setBlueDiameter(newBlueDiameter); //delete
+
+      setGameDiameters({
+        green: newGreenDiameter,
+        red: newRedDiameter,
+        blue: newBlueDiameter
+    });
+
+    } else {
+      // setGreenDiameter(20); //delete
+      // setRedDiameter(30); //delete
+      // setBlueDiameter(40); //delete
+
+      setGameDiameters({ green: 20, red: 30, blue: 40})
+    }
+    setPlayerGreenDiameter(0) //change
+    setPlayerRedDiameter(0) //change
+    setPlayerBlueDiameter(0) //change
+    
   }, []);
 
   useEffect(() => {
@@ -40,21 +67,31 @@ export default function Play(
     }
   }, [counter]);
 
-  console.log(playerGreenDiameter, playerRedDiameter, playerBlueDiameter)
-  console.log(greenDiameter, redDiameter, blueDiameter)
-
+  function handleDailyPlay() {
+    if(dailyPlay) {
+    const date = new Date()
+    const day = date.getDate()
+    setGameId(day)
+    localStorage.setItem("gameId",(JSON.stringify(gameId)))
+    
+    console.log(localStorage)
+}
+  }
   return (
-    <>
-      <h1 className="display-1">
+    <div className="d-flex flex-column justify-content:center align-items-center p-0 mt-4">
+      <h1 className="display-1 mt-3">
         {counter > 5 ? "Lets Play" : counter ? counter : "Go"}
       </h1>
 
-      <div style={{ maxWidth: 800, margin: "0 auto" }}>
+      <div className="d-flex flex-column justify-content:center align-items-center p-0 m-0">
         {counter < 6 && counter > 0 ? (
           <GameCircles
-            greenDiameter={greenDiameter}
-            redDiameter={redDiameter}
-            blueDiameter={blueDiameter}
+            // greenDiameter={greenDiameter} //delete
+            // redDiameter={redDiameter} //delete
+            // blueDiameter={blueDiameter} //delete
+
+            gameDiameters={gameDiameters}
+
           />
         ) : (
           <>
@@ -77,13 +114,13 @@ export default function Play(
             }}
           >
             <button
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg" onClick={handleDailyPlay}
             >
               Submit
             </button>
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }

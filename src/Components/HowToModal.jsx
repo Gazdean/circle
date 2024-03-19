@@ -15,6 +15,7 @@ export default function HowToModal() {
             <p>You have 5 seconds to remember the size of the squircles</p>
             <p>Use the sliders to reproduce each squircle</p>
             <p>Press submit to see your score</p>
+            <p>How close to zero can you get?</p>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-primary btn-md" data-bs-dismiss="modal">Close</button>

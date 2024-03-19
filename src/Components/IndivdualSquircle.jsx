@@ -1,6 +1,6 @@
 export default function IndividualSquircle({diameter, color, borderType}) {
   function handleSquircleRadius(diameter) {
-    const radius = diameter / 3.35;
+    const radius = diameter / 3.05;
     return radius;
   }
 
