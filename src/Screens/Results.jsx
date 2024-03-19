@@ -9,11 +9,15 @@ export default function Results({
   // blueDiameter, //delete
 
   gameDiameters,
-  setGameDiameters,
+  // setGameDiameters, //delete
 
-  playerGreenDiameter,
-  playerRedDiameter,
-  playerBlueDiameter,
+  // playerGreenDiameter, //delete
+  // playerRedDiameter, //delete
+  // playerBlueDiameter, //delete
+
+  playerDiameters,
+  setPlayerDiameters,
+
   greenTotal,
   setGreenTotal,
   redTotal,
@@ -35,7 +39,7 @@ export default function Results({
   },[])
 
   useEffect(() => {
-    if (greenCounter <= playerGreenDiameter) {
+    if (greenCounter <= playerDiameters.green) {
       const timer = setInterval(
         () => setGreenCounter((prevCounter) => prevCounter + 1),
         10
@@ -43,7 +47,7 @@ export default function Results({
       setGreenTotal(Math.ceil((Math.abs(gameDiameters.green - greenCounter)/330) *100));
       return () => clearInterval(timer);
     }
-    if (redCounter <= playerRedDiameter) {
+    if (redCounter <= playerDiameters.red) {
       const timer = setInterval(
         () => setRedCounter((prevCounter) => prevCounter + 1),
         10
@@ -51,7 +55,7 @@ export default function Results({
       setRedTotal(Math.ceil((Math.abs(gameDiameters.red - redCounter)/330) *100));
       return () => clearInterval(timer);
     }
-    if (blueCounter <= playerBlueDiameter) {
+    if (blueCounter <= playerDiameters.blue) {
       const timer = setInterval(
         () => setBlueCounter((prevCounter) => prevCounter + 1),
         10
@@ -60,7 +64,7 @@ export default function Results({
       return () => clearInterval(timer);
     }
 
-    if (greenCounter > playerGreenDiameter && redCounter >playerRedDiameter && blueCounter > playerBlueDiameter) {
+    if (greenCounter > playerDiameters.green && redCounter >playerDiameters.red && blueCounter > playerDiameters.blue) {
       setResultsComplete(true)
     }
   }, [blueCounter, greenCounter, redCounter]);
@@ -145,7 +149,7 @@ export default function Results({
           borderType={"dashed"}
         />
       </SquircleContainer>
-      <Totals greenTotal={greenTotal} redTotal={redTotal} blueTotal={blueTotal} dailyPlay={dailyPlay}/>
+      <Totals setPlayerDiameters={setPlayerDiameters} greenTotal={greenTotal} redTotal={redTotal} blueTotal={blueTotal} dailyPlay={dailyPlay}/>
     </div>
   );
 }

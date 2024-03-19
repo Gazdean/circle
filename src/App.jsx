@@ -14,9 +14,11 @@ function App() {
 
   const [gameDiameters, setGameDiameters] = useState({})
 
-  const [playerGreenDiameter, setPlayerGreenDiameter] = useState(0);
-  const [playerRedDiameter, setPlayerRedDiameter] = useState(0);
-  const [playerBlueDiameter, setPlayerBlueDiameter] = useState(0);
+  // const [playerGreenDiameter, setPlayerGreenDiameter] = useState(0); //delete
+  // const [playerRedDiameter, setPlayerRedDiameter] = useState(0); //delete
+  // const [playerBlueDiameter, setPlayerBlueDiameter] = useState(0); //delete
+
+  const [playerDiameters, setPlayerDiameters] = useState({})
 
   const [greenTotal, setGreenTotal] = useState(0);
   const [redTotal, setRedTotal] = useState(0);
@@ -43,12 +45,16 @@ function App() {
               gameDiameters={gameDiameters}
               setGameDiameters={setGameDiameters}
 
-              playerGreenDiameter={playerGreenDiameter}
-              setPlayerGreenDiameter={setPlayerGreenDiameter}
-              playerRedDiameter={playerRedDiameter}
-              setPlayerRedDiameter={setPlayerRedDiameter}
-              playerBlueDiameter={playerBlueDiameter}
-              setPlayerBlueDiameter={setPlayerBlueDiameter}
+              // playerGreenDiameter={playerGreenDiameter} //delete
+              // setPlayerGreenDiameter={setPlayerGreenDiameter} //delete
+              // playerRedDiameter={playerRedDiameter} //delete
+              // setPlayerRedDiameter={setPlayerRedDiameter} //delete
+              // playerBlueDiameter={playerBlueDiameter} //delete
+              // setPlayerBlueDiameter={setPlayerBlueDiameter} //delete
+
+              playerDiameters={playerDiameters}
+              setPlayerDiameters={setPlayerDiameters}
+
               dailyPlay={dailyPlay}
               setDailyPlay={setDailyPlay}
             />
@@ -66,20 +72,27 @@ function App() {
               // setBlueDiameter={setBlueDiameter}
 
               gameDiameters={gameDiameters}
-              setGameDiameters={setGameDiameters}
+              // setGameDiameters={setGameDiameters}
 
-              playerGreenDiameter={playerGreenDiameter}
-              setPlayerGreenDiameter={setPlayerGreenDiameter}
-              playerRedDiameter={playerRedDiameter}
-              setPlayerRedDiameter={setPlayerRedDiameter}
-              playerBlueDiameter={playerBlueDiameter}
-              setPlayerBlueDiameter={setPlayerBlueDiameter}
+              // playerGreenDiameter={playerGreenDiameter} //delete
+              // // setPlayerGreenDiameter={setPlayerGreenDiameter} //delete
+              // playerRedDiameter={playerRedDiameter} //delete
+              // // setPlayerRedDiameter={setPlayerRedDiameter} //delete
+              // playerBlueDiameter={playerBlueDiameter} //delete
+              // // setPlayerBlueDiameter={setPlayerBlueDiameter} //delete
+
+              playerDiameters={playerDiameters}
+              setPlayerDiameters={setPlayerDiameters}
+
               greenTotal={greenTotal}
               setGreenTotal={setGreenTotal}
               redTotal={redTotal}
               setRedTotal={setRedTotal}
               blueTotal={blueTotal}
               setBlueTotal={setBlueTotal}
+
+              
+
               dailyPlay={dailyPlay}
             />
           }

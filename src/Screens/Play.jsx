@@ -12,9 +12,12 @@ export default function Play(
 
     gameDiameters, setGameDiameters,
 
-    playerGreenDiameter, setPlayerGreenDiameter,
-    playerRedDiameter, setPlayerRedDiameter,
-    playerBlueDiameter, setPlayerBlueDiameter,
+    // playerGreenDiameter, setPlayerGreenDiameter, //delete
+    // playerRedDiameter, setPlayerRedDiameter, //delete
+    // playerBlueDiameter, setPlayerBlueDiameter, //delete
+
+    playerDiameters, setPlayerDiameters,
+
     dailyPlay, setDailyPlay
   }
 ){
@@ -23,6 +26,7 @@ export default function Play(
   const [gameId, setGameId] =useState(null)
 
   useEffect(() => {
+    
     if(!dailyPlay) {
       let newGreenDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
       let newRedDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
@@ -48,10 +52,9 @@ export default function Play(
 
       setGameDiameters({ green: 20, red: 30, blue: 40})
     }
-    setPlayerGreenDiameter(0) //change
-    setPlayerRedDiameter(0) //change
-    setPlayerBlueDiameter(0) //change
-    
+    // setPlayerGreenDiameter(0) //delete
+    // setPlayerRedDiameter(0) //delete
+    // setPlayerBlueDiameter(0) //delete
   }, []);
 
   useEffect(() => {
@@ -96,17 +99,22 @@ export default function Play(
         ) : (
           <>
             <PlayerCircles
-              playerGreenDiameter={playerGreenDiameter}
-              playerRedDiameter={playerRedDiameter}
-              playerBlueDiameter={playerBlueDiameter}
+              // playerGreenDiameter={playerGreenDiameter} //delete
+              // playerRedDiameter={playerRedDiameter} //delete
+              // playerBlueDiameter={playerBlueDiameter} //delete
+
+              playerDiameters={playerDiameters}
             />
           </>
         )}
         <div style={{ visibility: sliderVisibility ? "hidden" : "visible" }}>
           <Sliders
-            setPlayerGreenDiameter={setPlayerGreenDiameter}
-            setPlayerRedDiameter={setPlayerRedDiameter}
-            setPlayerBlueDiameter={setPlayerBlueDiameter}
+            // setPlayerGreenDiameter={setPlayerGreenDiameter} //delete
+            // setPlayerRedDiameter={setPlayerRedDiameter} //delete
+            // setPlayerBlueDiameter={setPlayerBlueDiameter} //delete
+
+            playerDiameters={playerDiameters}
+            setPlayerDiameters={setPlayerDiameters}
           />
           <Link
             to={{
