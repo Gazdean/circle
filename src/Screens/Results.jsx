@@ -18,12 +18,16 @@ export default function Results({
   playerDiameters,
   setPlayerDiameters,
 
-  greenTotal,
-  setGreenTotal,
-  redTotal,
-  setRedTotal,
-  blueTotal,
-  setBlueTotal,
+  // greenTotal, //delete
+  // setGreenTotal, //delete
+  // redTotal, //delete
+  // setRedTotal, //delete
+  // blueTotal, //delete
+  // setBlueTotal, //delete
+
+  totals,
+  setTotals,
+
   dailyPlay
 }) {
   const [greenCounter, setGreenCounter] = useState(0);
@@ -33,9 +37,11 @@ export default function Results({
   const [resultsComplete, setResultsComplete] = useState(false)
 
   useEffect(()=>{
-    setGreenTotal(0)
-    setRedTotal(0)
-    setBlueTotal(0)
+    // setGreenTotal(0) //delete
+    // setRedTotal(0) //delete
+    // setBlueTotal(0) //delete
+
+    setTotals({})
   },[])
 
   useEffect(() => {
@@ -44,7 +50,7 @@ export default function Results({
         () => setGreenCounter((prevCounter) => prevCounter + 1),
         10
       );
-      setGreenTotal(Math.ceil((Math.abs(gameDiameters.green - greenCounter)/330) *100));
+      setTotals({...totals, green: Math.ceil((Math.abs(gameDiameters.green - greenCounter)/330) *100)});
       return () => clearInterval(timer);
     }
     if (redCounter <= playerDiameters.red) {
@@ -52,7 +58,7 @@ export default function Results({
         () => setRedCounter((prevCounter) => prevCounter + 1),
         10
       );
-      setRedTotal(Math.ceil((Math.abs(gameDiameters.red - redCounter)/330) *100));
+      setTotals({...totals, red: Math.ceil((Math.abs(gameDiameters.red - redCounter)/330) *100)});
       return () => clearInterval(timer);
     }
     if (blueCounter <= playerDiameters.blue) {
@@ -60,7 +66,7 @@ export default function Results({
         () => setBlueCounter((prevCounter) => prevCounter + 1),
         10
       );
-      setBlueTotal(Math.ceil((Math.abs(gameDiameters.blue - blueCounter)/330) *100));
+      setTotals({...totals, blue: Math.ceil((Math.abs(gameDiameters.blue - blueCounter)/330) *100)});
       return () => clearInterval(timer);
     }
 
@@ -80,9 +86,9 @@ export default function Results({
         let redLocalStorage = JSON.parse(localStorage.red)
         let blueLocalStorage = JSON.parse(localStorage.blue)
 
-       handleSetStorage("green", greenTotal, greenLocalStorage)
-       handleSetStorage("red", redTotal, redLocalStorage)
-       handleSetStorage("blue", blueTotal, blueLocalStorage)
+       handleSetStorage("green", totals.green, greenLocalStorage)
+       handleSetStorage("red", totals.red, redLocalStorage)
+       handleSetStorage("blue", totals.blue, blueLocalStorage)
     }
   },[resultsComplete])
 
@@ -149,7 +155,7 @@ export default function Results({
           borderType={"dashed"}
         />
       </SquircleContainer>
-      <Totals setPlayerDiameters={setPlayerDiameters} greenTotal={greenTotal} redTotal={redTotal} blueTotal={blueTotal} dailyPlay={dailyPlay}/>
+      <Totals setPlayerDiameters={setPlayerDiameters} /*greenTotal={greenTotal} redTotal={redTotal} blueTotal={blueTotal}*/ totals={totals} dailyPlay={dailyPlay}/>
     </div>
   );
 }

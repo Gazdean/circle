@@ -12,17 +12,19 @@ function App() {
   // const [redDiameter, setRedDiameter] = useState(0); //delete
   // const [blueDiameter, setBlueDiameter] = useState(0); //delete
 
-  const [gameDiameters, setGameDiameters] = useState({})
+  const [gameDiameters, setGameDiameters] = useState({green: 0, red: 0, blue: 0})
 
   // const [playerGreenDiameter, setPlayerGreenDiameter] = useState(0); //delete
   // const [playerRedDiameter, setPlayerRedDiameter] = useState(0); //delete
   // const [playerBlueDiameter, setPlayerBlueDiameter] = useState(0); //delete
 
-  const [playerDiameters, setPlayerDiameters] = useState({})
+  const [playerDiameters, setPlayerDiameters] = useState({green: 0, red: 0, blue: 0})
 
-  const [greenTotal, setGreenTotal] = useState(0);
-  const [redTotal, setRedTotal] = useState(0);
-  const [blueTotal, setBlueTotal] = useState(0);
+  // const [greenTotal, setGreenTotal] = useState(0); //delete
+  // const [redTotal, setRedTotal] = useState(0); //delete
+  // const [blueTotal, setBlueTotal] = useState(0); //delete
+
+  const [totals , setTotals] = useState({green: 0, red: 0, blue: 0})
 
   const [dailyPlay, setDailyPlay] = useState(false)
 
@@ -84,14 +86,15 @@ function App() {
               playerDiameters={playerDiameters}
               setPlayerDiameters={setPlayerDiameters}
 
-              greenTotal={greenTotal}
-              setGreenTotal={setGreenTotal}
-              redTotal={redTotal}
-              setRedTotal={setRedTotal}
-              blueTotal={blueTotal}
-              setBlueTotal={setBlueTotal}
+              // greenTotal={greenTotal} //delete
+              // setGreenTotal={setGreenTotal} //delete
+              // redTotal={redTotal} //delete
+              // setRedTotal={setRedTotal} //delete
+              // blueTotal={blueTotal} //delete
+              // setBlueTotal={setBlueTotal} //delete
 
-              
+              totals={totals}
+              setTotals={setTotals}
 
               dailyPlay={dailyPlay}
             />
@@ -101,12 +104,15 @@ function App() {
           path="/stats"
           element={
             <Stats
-              greenTotal={greenTotal}
-              setGreenTotal={setGreenTotal}
-              redTotal={redTotal}
-              setRedTotal={setRedTotal}
-              blueTotal={blueTotal}
-              setBlueTotal={setBlueTotal}
+              // greenTotal={greenTotal} //delete
+              // setGreenTotal={setGreenTotal} //delete
+              // redTotal={redTotal} //delete
+              // setRedTotal={setRedTotal} //delete
+              // blueTotal={blueTotal} //delete
+              // setBlueTotal={setBlueTotal} //delete
+
+              totals={totals}
+              setTotals={setTotals}
             />
           }
         />
