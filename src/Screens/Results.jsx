@@ -4,27 +4,9 @@ import IndividualSquircle from "../Components/IndivdualSquircle";
 import Totals from "../Components/Totals";
 
 export default function Results({
-  // greenDiameter, //delete
-  // redDiameter, //delete
-  // blueDiameter, //delete
-
   gameDiameters,
-  // setGameDiameters, //delete
-
-  // playerGreenDiameter, //delete
-  // playerRedDiameter, //delete
-  // playerBlueDiameter, //delete
-
   playerDiameters,
   setPlayerDiameters,
-
-  // greenTotal, //delete
-  // setGreenTotal, //delete
-  // redTotal, //delete
-  // setRedTotal, //delete
-  // blueTotal, //delete
-  // setBlueTotal, //delete
-
   totals,
   setTotals,
 
@@ -37,10 +19,6 @@ export default function Results({
   const [resultsComplete, setResultsComplete] = useState(false)
 
   useEffect(()=>{
-    // setGreenTotal(0) //delete
-    // setRedTotal(0) //delete
-    // setBlueTotal(0) //delete
-
     setTotals({})
   },[])
 
@@ -155,7 +133,7 @@ export default function Results({
           borderType={"dashed"}
         />
       </SquircleContainer>
-      <Totals setPlayerDiameters={setPlayerDiameters} /*greenTotal={greenTotal} redTotal={redTotal} blueTotal={blueTotal}*/ totals={totals} dailyPlay={dailyPlay}/>
+      <Totals setPlayerDiameters={setPlayerDiameters} totals={totals} dailyPlay={dailyPlay}/>
     </div>
   );
 }

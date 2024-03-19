@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ShareModal from "./ShareModal";
 
-export default function Totals({ setPlayerDiameters, /*greenTotal, redTotal, blueTotal,*/ totals, dailyPlay}) {
+export default function Totals({ setPlayerDiameters, totals, dailyPlay}) {
     return (
         <div className="container mt-2" style={{ width: "360px" }}>
             <p className="btn btn-success btn-md m-2 col-3">{totals.green}</p>
