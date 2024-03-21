@@ -26,7 +26,7 @@ export default function Stats({totals}) {
   );
 
   function handleDataArrays(stats) {
-    const dataArray = new Array(16).fill(0);
+    const dataArray = new Array(13).fill(0);
     if (stats)
       for (const key in stats) {
         if (key === "zero") dataArray[0] = stats[key];
@@ -52,7 +52,7 @@ export default function Stats({totals}) {
     const blueStats = JSON.parse(localStorage.getItem("blue"));
     const totalStats = JSON.parse(localStorage.getItem("total"));
 
-    setGreenDataArray(handleDataArrays(greenStats));
+    setGreenDataArray(handleDataArrays(greenStats)); 
     setRedDataArray(handleDataArrays(redStats));
     setBlueDataArray(handleDataArrays(blueStats));
     setTotalDataArray(handleDataArrays(totalStats));
@@ -103,7 +103,7 @@ export default function Stats({totals}) {
                 "31-40",
                 "41-50",
                 "51-75",
-                "76+",
+                "76+"
               ],
             },
           ]}

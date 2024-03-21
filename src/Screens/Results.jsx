@@ -107,6 +107,8 @@ export default function Results({
     }
   },[resultsComplete])
 
+  
+
   return (
     <div className="d-flex flex-column justify-content:center align-items-center pt-3">
       <h1 className="display-1 mt-2">Results</h1>

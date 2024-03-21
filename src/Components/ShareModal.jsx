@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -10,11 +11,26 @@ import {
 } from "react-share";
 
 export default function ShareModal() {
-  const todaysScores = JSON.parse(localStorage.getItem("todaysScore"))
+  const [todaysScores, setTodaysScores] = useState({})
+  const [messageBody, setMessageBody] = useState({})
+  const [faceWhatsMessage, setfaceWhatsMessage] = useState({})
 
   const shareUrl = "https://65f45726744af405e82e9a42--circletest1.netlify.app";
-  const messageBody = `I've played Squircles daily game\n\n🟩 ${todaysScores.green}\n🟥 ${todaysScores.red}\n🟦 ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n` 
-  const faceWhatsMessage = `I've played Squircles daily game\n\nGreen ${todaysScores.green}\nRed ${todaysScores.red}\nBlue ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n` 
+
+  useEffect(()=>{
+    setTodaysScores(JSON.parse(localStorage.getItem("todaysScore")))
+
+  },[])
+
+  useEffect(()=>{
+    if (todaysScores) {
+      setMessageBody(`I've played Squircles daily game\n\n🟩 ${todaysScores.green}\n🟥 ${todaysScores.red}\n🟦 ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n`)
+      setfaceWhatsMessage(`I've played Squircles daily game\n\nGreen ${todaysScores.green}\nRed ${todaysScores.red}\nBlue ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n`)
+    } else {
+      setMessageBody(`Check out this awesome game\n\nSquircles\n\nA short term memory game\n\n`)
+      setfaceWhatsMessage(`Check out this awesome game\n\nSquircles\n\nA short term memory game\n\n`)
+    }
+  },[todaysScores])
 
   return (
     <div
