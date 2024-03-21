@@ -79,15 +79,9 @@ export default function Results({
         !colorLocalStorage.fiftyUnder ? colorLocalStorage.fiftyUnder = 1: colorLocalStorage.fiftyUnder += 1     
       } else if (colorTotal > 51 && colorTotal <  76) {
         !colorLocalStorage.seventySixUnder ? colorLocalStorage.seventySixUnder = 1: colorLocalStorage.seventySixUnder += 1     
-      } else if (colorTotal > 75 && colorTotal <  101) {
-        !colorLocalStorage.hundredOneUnder ? colorLocalStorage.hundredOneUnder = 1: colorLocalStorage.hundredOneUnder += 1     
-      } else if (colorTotal > 100 && colorTotal <  126) {
-        !colorLocalStorage.hundredTwentySixUnder ? colorLocalStorage.hundredTwentySixUnder = 1: colorLocalStorage.hundredTwentySixUnder += 1     
-      } else if (colorTotal > 125 && colorTotal <  151) {
-        !colorLocalStorage.hundredFiftyUnder ? colorLocalStorage.hundredFiftyUnder = 1: colorLocalStorage.hundredFiftyUnder += 1     
-      } else if (colorTotal > 150 ) {
-        !colorLocalStorage.hundredFiftyOver ? colorLocalStorage.hundredFiftyOver = 1: colorLocalStorage.hundredFiftyOver += 1     
-      }
+      } else if (colorTotal > 75) {
+        !colorLocalStorage.overSeventyFive ? colorLocalStorage.overSeventyFive = 1: colorLocalStorage.overSeventyFive += 1     
+      } 
       localStorage.setItem(colorString, JSON.stringify(colorLocalStorage))
     }
 

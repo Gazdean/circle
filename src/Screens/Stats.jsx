@@ -41,10 +41,7 @@ export default function Stats({totals}) {
         if (key === "fortyUnder") dataArray[9] = stats[key];
         if (key === "fiftyUnder") dataArray[10] = stats[key];
         if (key === "seventySixUnder") dataArray[11] = stats[key];
-        if (key === "hundredOneUnder") dataArray[12] = stats[key];
-        if (key === "hundredTwentySixUnder") dataArray[13] = stats[key];
-        if (key === "hundredFiftyUnder") dataArray[14] = stats[key];
-        if (key === "hundredFiftyOver") dataArray[15] = stats[key];
+        if (key === "overSeventyFive") dataArray[12] = stats[key];
       }
     return dataArray;
   }
@@ -55,11 +52,10 @@ export default function Stats({totals}) {
     const blueStats = JSON.parse(localStorage.getItem("blue"));
     const totalStats = JSON.parse(localStorage.getItem("total"));
 
-    setGreenDataArray(handleDataArrays(greenStats).slice(0, 13)); //removes unwanted end of array which totalDataArray needs
-    setRedDataArray(handleDataArrays(redStats).slice(0, 13));
-    setBlueDataArray(handleDataArrays(blueStats).slice(0, 13));
+    setGreenDataArray(handleDataArrays(greenStats));
+    setRedDataArray(handleDataArrays(redStats));
+    setBlueDataArray(handleDataArrays(blueStats));
     setTotalDataArray(handleDataArrays(totalStats));
-
   }, []);
 
   function handleSetDataSeries(color) {
@@ -107,10 +103,7 @@ export default function Stats({totals}) {
                 "31-40",
                 "41-50",
                 "51-75",
-                "76-100",
-                "101-125",
-                "126-150",
-                "151+",
+                "76+",
               ],
             },
           ]}
