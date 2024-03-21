@@ -3,24 +3,19 @@ import GameCircles from "../Components/GameCircles";
 import Sliders from "../Components/Sliders";
 import PlayerCircles from "../Components/PlayerCircles";
 import { Link } from "react-router-dom";
+import {monthlyNumberArray} from "../utils/dailyGame"
 
-export default function Play(
-  {
-    gameDiameters, setGameDiameters,
-    playerDiameters, setPlayerDiameters,
-    dailyPlay, 
-  }
-){
+export default function Play({ gameDiameters, setGameDiameters, playerDiameters, setPlayerDiameters, dailyPlay, gameId })
+{
   const [counter, setCounter] = useState(6);
   const [sliderVisibility, setSliderVisibility] = useState(true);
-  const [gameId, setGameId] =useState(null)
-
+ 
   useEffect(() => {
     setPlayerDiameters({green:0, red:0, blue: 0})
     if(!dailyPlay) {
-      let newGreenDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
-      let newRedDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
-      let newBlueDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
+      let newGreenDiameter = (Math.ceil(Math.random() * (330 - 30) + 30));
+      let newRedDiameter = (Math.ceil(Math.random() * (330 - 30) + 30));
+      let newBlueDiameter = (Math.ceil(Math.random() * (330 - 30) + 30));
 
       if ( newRedDiameter > newGreenDiameter - 8 && newRedDiameter < newGreenDiameter + 8 )  newRedDiameter -= 15
       if ( newBlueDiameter > newRedDiameter - 8 && newBlueDiameter < newRedDiameter + 8  ||  newBlueDiameter > newGreenDiameter - 8 && newBlueDiameter < newGreenDiameter + 8)  newBlueDiameter -= 22
@@ -30,7 +25,10 @@ export default function Play(
         blue: newBlueDiameter
       });
     } else {
-      setGameDiameters({ green: 20, red: 30, blue: 40})
+      const dailyDiameters = monthlyNumberArray.filter((dailyObj)=>{
+          return Object.keys(dailyObj)[0] === gameId
+      })
+      setGameDiameters(dailyDiameters[0][gameId])
     }
   }, []);
 
@@ -48,15 +46,12 @@ export default function Play(
   }, [counter]);
 
   function handleDailyPlay() {
-    if(dailyPlay) {
-    const date = new Date()
-    const day = date.getDate()
-    setGameId(day)
-    localStorage.setItem("gameId",(JSON.stringify(gameId)))
-    
-    console.log(localStorage)
-}
-  }
+    if(dailyPlay) {   
+      localStorage.setItem("gameId",(JSON.stringify(gameId)))
+      console.log(localStorage)
+    }
+  } 
+
   return (
     <div className="d-flex flex-column justify-content:center align-items-center p-0 mt-4">
       <h1 className="display-1 mt-3">

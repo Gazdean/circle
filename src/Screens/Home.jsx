@@ -1,23 +1,32 @@
 import { Link } from "react-router-dom"
 import HowToModal from "../Components/HowToModal"
-import { useState, useEffect} from "react"
+import { useEffect, useState } from "react"
+import AlreadyPlayedModal from "../Components/AlreadyPlayedModal"
 
-export default function Home({setDailyPlay}) {
+export default function Home({setDailyPlay, setGameId, gameId}) {
 
-    const [todaysDate, setTodaysDate] = useState("")
+    const [disableDailyPlay, setDisableDailyPlay] = useState(null)
 
-    useEffect(()=>{
-        const date = new Date()
-        const day = date.getMonth()
-        setTodaysDate(day)
-        console.log(day)
-    },[])
+    useEffect(()=>{ 
+        if(!gameId){
+            const date = new Date()
+            const month = date.getMonth() + 1
+            const day = date.getDate()
+            const id = month.toString() + day.toString()
+            setGameId(id)
+        }
+        if(gameId) {
+            const localStorageGameId = JSON.parse(localStorage.getItem("gameId"))
+            gameId.toString() === localStorageGameId ? setDisableDailyPlay(true) : null
+        }
+    },[gameId])
 
-    useEffect(()=>{
-        localStorage.setItem("gameId",(JSON.stringify(todaysDate)))
-        console.log(localStorage)
-    }, [todaysDate])
-   
+
+
+    function handleDailyPlay() {
+        setDailyPlay(true)
+    }
+   console.log(disableDailyPlay)
     return (
         <div className="d-flex flex-column justify-content:center align-items-center">  
             <h2 id="welcome-home" className="display-5 m-3">Welcome to</h2>
@@ -29,13 +38,14 @@ export default function Home({setDailyPlay}) {
                         How To Play
                     </button>
                 </Link>
-                <Link to="/play">
-                    <button className="btn btn-primary btn-lg m-2" onClick={()=>{setDailyPlay(true)}}>
+                <Link to={disableDailyPlay ? "" : "/play"}>
+                    <button className={`btn ${disableDailyPlay ? "bg-primary-subtle" : "btn-primary" } btn-lg m-2`} onClick={handleDailyPlay} data-bs-toggle={disableDailyPlay ? "modal" : ""} data-bs-target="#alreadyPlayedModal">
                         Play Daily Game!
                     </button>
                 </Link>           
             </div>
             <HowToModal/>
+            <AlreadyPlayedModal disableDailyPlay={disableDailyPlay}/>
         </div>
     )
 }

@@ -11,13 +11,9 @@ import {
 
 export default function ShareModal({totals}) {
   const shareUrl = "https://65f45726744af405e82e9a42--circletest1.netlify.app";
-
-  console.log(totals)
-
   const messageBody = `I've played Squircles daily game\n\n🟩 ${totals.green}\n🟥 ${totals.red}\n🟦 ${totals.blue}\nTotal: ${totals.total}\n\nCheck it out!!!\n\n` 
   const faceWhatsMessage = `I've played Squircles daily game\n\nGreen ${totals.green}\nRed ${totals.red}\nBlue ${totals.blue}\nTotal: ${totals.total}\n\nCheck it out!!!\n\n` 
 
-  console.log(messageBody)
   return (
     <div
       className="modal fade"

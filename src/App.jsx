@@ -13,12 +13,13 @@ function App() {
   const [playerDiameters, setPlayerDiameters] = useState({green: 0, red: 0, blue: 0})
   const [totals , setTotals] = useState({green: 0, red: 0, blue: 0, total: 0})
   const [dailyPlay, setDailyPlay] = useState(false)
+  const [gameId, setGameId] = useState(null)
 
   return (
     <div className="d-flex flex-column justify-content:center">
       <NavBar setDailyPlay={setDailyPlay}/>
       <Routes>
-        <Route path="/" element={<Home setDailyPlay={setDailyPlay}/>} />
+        <Route path="/" element={<Home setDailyPlay={setDailyPlay} setGameId={setGameId} gameId={gameId}/>} />
         <Route
           path="/play"
           element={
@@ -31,6 +32,8 @@ function App() {
 
               dailyPlay={dailyPlay}
               setDailyPlay={setDailyPlay}
+
+              gameId={gameId}
             />
           }
         />

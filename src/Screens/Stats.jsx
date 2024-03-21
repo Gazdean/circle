@@ -7,12 +7,10 @@ export default function Stats({totals}) {
   const [redDataArray, setRedDataArray] = useState([]);
   const [blueDataArray, setBlueDataArray] = useState([]);
   const [totalDataArray, setTotalDataArray] = useState([]);
-    const [dataSeries, setDataSeries] = useState([])
   const [showGreen, setShowGreen] = useState(false)
   const [showRed, setShowRed] = useState(false)
   const [showBlue, setShowBlue] = useState(false)
   const [showTotal, setShowTotal] = useState(true)
-//   const [forceShowTotal, setForceShowTotal] = useState(false)
 
   const shareIcon = (
     <svg
@@ -26,8 +24,6 @@ export default function Stats({totals}) {
       <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5" />
     </svg>
   );
-
-  console.log(localStorage);
 
   function handleDataArrays(stats) {
     const dataArray = new Array(16).fill(0);
@@ -50,7 +46,6 @@ export default function Stats({totals}) {
         if (key === "hundredFiftyUnder") dataArray[14] = stats[key];
         if (key === "hundredFiftyOver") dataArray[15] = stats[key];
       }
-    console.log(dataArray, "Arrays");
     return dataArray;
   }
 
@@ -64,7 +59,7 @@ export default function Stats({totals}) {
     setRedDataArray(handleDataArrays(redStats).slice(0, 13));
     setBlueDataArray(handleDataArrays(blueStats).slice(0, 13));
     setTotalDataArray(handleDataArrays(totalStats));
-    console.log("set");
+
   }, []);
 
   function handleSetDataSeries(color) {
@@ -78,11 +73,6 @@ export default function Stats({totals}) {
         setShowTotal(!showTotal)
     }
   }
-
-//   useEffect(()=>{
-//     if (!showGreen && !showRed && !showBlue && !showTotal) setForceShowTotal(true)
-//     else setForceShowTotal(false)
-//   }, [showGreen, showRed, showBlue, showTotal])
 
   return (
     <div className="d-flex flex-column justify-content:center align-items-center p-0 mt-4">
@@ -131,7 +121,7 @@ export default function Stats({totals}) {
             { data: showGreen ? greenDataArray : []},
             { data: showRed ? redDataArray : [] },
             { data: showBlue ? blueDataArray  : []},
-            { data: showTotal ? totalDataArray : /*forceShowTotal ? totalDataArray :*/ []},
+            { data: showTotal ? totalDataArray : []},
             { data: [0]}
           ]}
           width={300}
@@ -164,7 +154,6 @@ export default function Stats({totals}) {
       </button>
       <button
         style={{width: 60}}
-        // disabled = {forceShowTotal ? true : false}
         className="btn btn-secondary btn-sm col-3"
         onClick={()=>handleSetDataSeries('total')}
       >
