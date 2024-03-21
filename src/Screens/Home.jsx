@@ -26,7 +26,7 @@ export default function Home({setDailyPlay, setGameId, gameId}) {
     }
 
     return (
-        <div className="d-flex flex-column justify-content:center align-items-center">  
+        <div className="d-flex flex-column justify-content-center align-items-center">  
             <h2 id="welcome-home" className="display-5 m-3">Welcome to</h2>
             <h1 id="title-home" className="display-1 text-decoration-underline fw-bold text-danger">SQUIRCLES!</h1>
             <h3 className="h6 m-4 fst-italic">A short term memory game</h3>

@@ -1,6 +1,4 @@
-
 import { Link, useLocation } from "react-router-dom";
-import circleLogo from "../../Assets/Images/circleLogo.png"
 import { useEffect, useState } from "react";
 
 export default function NavBar({setDailyPlay}) {
@@ -22,14 +20,31 @@ export default function NavBar({setDailyPlay}) {
   return (
   
         <nav className="navbar navbar-expand fixed-top bg-body-tertiary">
-            <div className="container-sm">
+            <div className="container-sm" >
+               
                 <Link className="navbar-brand" style={{fontSize:13}} to="/">
-                    <img src={circleLogo} alt="Logo" width="20" height="20" className="d-inline-block align-text-center" />
-                    SQUIRCLES
-                </Link>               
+                        {/* <img src={squircle} alt="Logo" width="20" height="20" className="d-inline-block align-text-center" /> */}
+                    <div className="d-flex align-items-center">
+                        <div  style={{
+                                backgroundColor: "#dc3545",
+                                width: `25px`,
+                                height: `25px`,
+                                borderTopLeftRadius: `9px`,
+                                borderTopRightRadius: `9px`,
+                                borderBottomRightRadius: `9px`,
+                                borderBottomLeftRadius: `9px`,
+                                marginRight: `3px`
+                            }}>
+
+                        </div>
+                        <p style={{fontSize: `13px`}} className="m-0">SQUIRCLES!</p>
+                   </div>
+                </Link>
+               
+                               
                 <div className="navbar-nav">
                     <Link id="nav-home" className="nav-link p-1" to="/" aria-current={currentPath === '/home' ? 'home page' : undefined}>{homeIcon}</Link>
-                    <Link id="nav-play" className="nav-link m-" to="/play" aria-current={currentPath === '/play' ? 'play page' : undefined} onClick ={()=>{setDailyPlay(false)}}>Practice</Link>
+                    <Link id="nav-play" className="nav-link " to="/play" aria-current={currentPath === '/play' ? 'play page' : undefined} onClick ={()=>{setDailyPlay(false)}}>Practice</Link>
                     <Link id="nav-stats" className="nav-link p-1" to="/stats" aria-current={currentPath === '/stats' ? 'stats page' : undefined}>{statsIcon}</Link>
                 </div>
             </div>
