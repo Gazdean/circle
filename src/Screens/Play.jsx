@@ -48,7 +48,6 @@ export default function Play({ gameDiameters, setGameDiameters, playerDiameters,
   function handleDailyPlay() {
     if(dailyPlay) {   
       localStorage.setItem("gameId",(JSON.stringify(gameId)))
-      console.log(localStorage)
     }
   } 
 

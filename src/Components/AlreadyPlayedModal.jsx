@@ -1,4 +1,4 @@
-export default function HowToModal({disableDailyPlay}) {
+export default function HowToModal() {
     return (
       <div className="modal fade" id="alreadyPlayedModal" tabIndex="-1" aria-labelledby="alreadyPlayedModalLabel" aria-hidden="true">
         <div className="modal-dialog">
@@ -11,7 +11,7 @@ export default function HowToModal({disableDailyPlay}) {
               <p>You've already played todays game!!</p>
               <p>Why not have a few practice games</p>
               <p>Or check out your stats</p>
-              <p>And Share with your friends</p>
+              <p>And Share your scores with your friends</p>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-primary btn-md" data-bs-dismiss="modal">Close</button>

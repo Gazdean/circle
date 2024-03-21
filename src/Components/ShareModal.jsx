@@ -9,10 +9,12 @@ import {
   EmailShareButton,
 } from "react-share";
 
-export default function ShareModal({totals}) {
+export default function ShareModal() {
+  const todaysScores = JSON.parse(localStorage.getItem("todaysScore"))
+
   const shareUrl = "https://65f45726744af405e82e9a42--circletest1.netlify.app";
-  const messageBody = `I've played Squircles daily game\n\n🟩 ${totals.green}\n🟥 ${totals.red}\n🟦 ${totals.blue}\nTotal: ${totals.total}\n\nCheck it out!!!\n\n` 
-  const faceWhatsMessage = `I've played Squircles daily game\n\nGreen ${totals.green}\nRed ${totals.red}\nBlue ${totals.blue}\nTotal: ${totals.total}\n\nCheck it out!!!\n\n` 
+  const messageBody = `I've played Squircles daily game\n\n🟩 ${todaysScores.green}\n🟥 ${todaysScores.red}\n🟦 ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n` 
+  const faceWhatsMessage = `I've played Squircles daily game\n\nGreen ${todaysScores.green}\nRed ${todaysScores.red}\nBlue ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n` 
 
   return (
     <div
@@ -26,7 +28,7 @@ export default function ShareModal({totals}) {
         <div className="modal-content">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="shareModalLabel">
-              Share
+              Share Your Daily Scores
             </h1>
             <button
               type="button"

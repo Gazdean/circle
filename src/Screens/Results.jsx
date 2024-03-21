@@ -99,15 +99,17 @@ export default function Results({
         localStorage.setItem("blue",JSON.stringify({}))
         localStorage.setItem("total",JSON.stringify({}))
       }
-        const greenLocalStorage = JSON.parse(localStorage.green)
-        const redLocalStorage = JSON.parse(localStorage.red)
-        const blueLocalStorage = JSON.parse(localStorage.blue)
-        const totalLocalStorage = JSON.parse(localStorage.total)
+      const greenLocalStorage = JSON.parse(localStorage.getItem("green"))
+      const redLocalStorage = JSON.parse(localStorage.getItem("red"))
+      const blueLocalStorage = JSON.parse(localStorage.getItem("blue"))
+      const totalLocalStorage = JSON.parse(localStorage.getItem("total"))
 
        handleSetStorage("green", totals.green, greenLocalStorage)
        handleSetStorage("red", totals.red, redLocalStorage)
        handleSetStorage("blue", totals.blue, blueLocalStorage)
        handleSetStorage("total", totals.total, totalLocalStorage)
+
+       localStorage.setItem("todaysScore", JSON.stringify(totals))
     }
   },[resultsComplete])
 

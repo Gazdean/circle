@@ -21,12 +21,10 @@ export default function Home({setDailyPlay, setGameId, gameId}) {
         }
     },[gameId])
 
-
-
     function handleDailyPlay() {
         setDailyPlay(true)
     }
-   console.log(disableDailyPlay)
+
     return (
         <div className="d-flex flex-column justify-content:center align-items-center">  
             <h2 id="welcome-home" className="display-5 m-3">Welcome to</h2>
@@ -45,7 +43,7 @@ export default function Home({setDailyPlay, setGameId, gameId}) {
                 </Link>           
             </div>
             <HowToModal/>
-            <AlreadyPlayedModal disableDailyPlay={disableDailyPlay}/>
+            <AlreadyPlayedModal />
         </div>
     )
 }
