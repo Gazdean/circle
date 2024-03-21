@@ -4,20 +4,20 @@ import { useState, useEffect} from "react"
 
 export default function Home({setDailyPlay}) {
 
-    const [gameId, setGameId] = useState(null)
+    const [todaysDate, setTodaysDate] = useState("")
 
     useEffect(()=>{
         const date = new Date()
-        const day = date.getDate()
-        setGameId(day)
+        const day = date.getMonth()
+        setTodaysDate(day)
+        console.log(day)
     },[])
 
     useEffect(()=>{
-        localStorage.setItem("gameId",(JSON.stringify(gameId)))
+        localStorage.setItem("gameId",(JSON.stringify(todaysDate)))
         console.log(localStorage)
-    }, [gameId])
+    }, [todaysDate])
    
-
     return (
         <div className="d-flex flex-column justify-content:center align-items-center">  
             <h2 id="welcome-home" className="display-5 m-3">Welcome to</h2>
@@ -27,7 +27,8 @@ export default function Home({setDailyPlay}) {
                 <Link>
                     <button type="button" className="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#howToModal">
                         How To Play
-                    </button></Link>
+                    </button>
+                </Link>
                 <Link to="/play">
                     <button className="btn btn-primary btn-lg m-2" onClick={()=>{setDailyPlay(true)}}>
                         Play Daily Game!

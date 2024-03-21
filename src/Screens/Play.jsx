@@ -16,7 +16,7 @@ export default function Play(
   const [gameId, setGameId] =useState(null)
 
   useEffect(() => {
-    
+    setPlayerDiameters({green:0, red:0, blue: 0})
     if(!dailyPlay) {
       let newGreenDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
       let newRedDiameter = (Math.ceil(Math.random() * (330 - 40) + 40));
@@ -24,12 +24,11 @@ export default function Play(
 
       if ( newRedDiameter > newGreenDiameter - 8 && newRedDiameter < newGreenDiameter + 8 )  newRedDiameter -= 15
       if ( newBlueDiameter > newRedDiameter - 8 && newBlueDiameter < newRedDiameter + 8  ||  newBlueDiameter > newGreenDiameter - 8 && newBlueDiameter < newGreenDiameter + 8)  newBlueDiameter -= 22
-
       setGameDiameters({
         green: newGreenDiameter,
         red: newRedDiameter,
         blue: newBlueDiameter
-    });
+      });
     } else {
       setGameDiameters({ green: 20, red: 30, blue: 40})
     }

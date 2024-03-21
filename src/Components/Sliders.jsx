@@ -1,5 +1,3 @@
-// import GameSlider from "./GameSlider"
-
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 

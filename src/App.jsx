@@ -11,7 +11,7 @@ function App() {
 
   const [gameDiameters, setGameDiameters] = useState({green: 0, red: 0, blue: 0})
   const [playerDiameters, setPlayerDiameters] = useState({green: 0, red: 0, blue: 0})
-  const [totals , setTotals] = useState({green: 0, red: 0, blue: 0})
+  const [totals , setTotals] = useState({green: 0, red: 0, blue: 0, total: 0})
   const [dailyPlay, setDailyPlay] = useState(false)
 
   return (
@@ -53,10 +53,7 @@ function App() {
         <Route
           path="/stats"
           element={
-            <Stats
-              totals={totals}
-              setTotals={setTotals}
-            />
+            <Stats totals={totals}/>
           }
         />
       </Routes>

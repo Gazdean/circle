@@ -49,54 +49,68 @@ export default function Results({
     }
 
     if (greenCounter > playerDiameters.green && redCounter >playerDiameters.red && blueCounter > playerDiameters.blue) {
+      setTotals({...totals, total: totals.green + totals.red + totals.blue})
       setResultsComplete(true)
     }
   }, [blueCounter, greenCounter, redCounter]);
 
+  function handleSetStorage(colorString, colorTotal, colorLocalStorage) {
+      if (colorTotal === 0 ) {
+        !colorLocalStorage.zero ? colorLocalStorage.zero = 1 : colorLocalStorage.zero += 1
+      } else if (colorTotal === 1 ) {
+        !colorLocalStorage.one ? colorLocalStorage.one = 1 : colorLocalStorage.one += 1  
+      } else if (colorTotal === 2 ) {
+        !colorLocalStorage.two ? colorLocalStorage.two = 1 : colorLocalStorage.two += 1
+      } else if (colorTotal === 3 ) {
+        !colorLocalStorage.three ? colorLocalStorage.three = 1 : colorLocalStorage.three += 1
+      } else if (colorTotal === 4 ) {
+        !colorLocalStorage.four ? colorLocalStorage.four = 1 : colorLocalStorage.four += 1
+      } else if (colorTotal === 5) {
+        !colorLocalStorage.five ? colorLocalStorage.five = 1 : colorLocalStorage.five += 1
+      } else if (colorTotal > 5 && colorTotal < 11) {
+        !colorLocalStorage.tenUnder ? colorLocalStorage.tenUnder = 1 : colorLocalStorage.tenUnder += 1
+      } else if (colorTotal > 10  && colorTotal < 21 ) {
+        !colorLocalStorage.twentyUnder ? colorLocalStorage.twentyUnder= 1 : colorLocalStorage.twentyUnder += 1
+      } else if (colorTotal > 20  && colorTotal < 31 ) {
+        !colorLocalStorage.thirtyUnder ? colorLocalStorage.thirtyUnder= 1 : colorLocalStorage.thirtyUnder += 1
+      } else if (colorTotal > 30  && colorTotal < 41 ) {
+        !colorLocalStorage.fortyUnder ? colorLocalStorage.fortyUnder = 1 : colorLocalStorage.fortyUnder += 1
+      } else if (colorTotal > 40  && colorTotal < 51 ) {
+        !colorLocalStorage.fiftyUnder ? colorLocalStorage.fiftyUnder = 1: colorLocalStorage.fiftyUnder += 1     
+      } else if (colorTotal > 51 && colorTotal <  76) {
+        !colorLocalStorage.seventySixUnder ? colorLocalStorage.seventySixUnder = 1: colorLocalStorage.seventySixUnder += 1     
+      } else if (colorTotal > 75 && colorTotal <  101) {
+        !colorLocalStorage.hundredOneUnder ? colorLocalStorage.hundredOneUnder = 1: colorLocalStorage.hundredOneUnder += 1     
+      } else if (colorTotal > 100 && colorTotal <  126) {
+        !colorLocalStorage.hundredTwentySixUnder ? colorLocalStorage.hundredTwentySixUnder = 1: colorLocalStorage.hundredTwentySixUnder += 1     
+      } else if (colorTotal > 125 && colorTotal <  151) {
+        !colorLocalStorage.hundredFiftyUnder ? colorLocalStorage.hundredFiftyUnder = 1: colorLocalStorage.hundredFiftyUnder += 1     
+      } else if (colorTotal > 150 ) {
+        !colorLocalStorage.hundredFiftyOver ? colorLocalStorage.hundredFiftyOver = 1: colorLocalStorage.hundredFiftyOver += 1     
+      }
+      localStorage.setItem(colorString, JSON.stringify(colorLocalStorage))
+    }
+
   useEffect(()=> {
     if(dailyPlay && resultsComplete) {
-      if(localStorage.length === 1) {
-        localStorage.setItem("green",(JSON.stringify({})))
+      if(!localStorage.green) {
+        localStorage.setItem("green",JSON.stringify({}))
         localStorage.setItem("red",JSON.stringify({}))
         localStorage.setItem("blue",JSON.stringify({}))
+        localStorage.setItem("total",JSON.stringify({}))
       }
-        let greenLocalStorage = JSON.parse(localStorage.green)
-        let redLocalStorage = JSON.parse(localStorage.red)
-        let blueLocalStorage = JSON.parse(localStorage.blue)
+        const greenLocalStorage = JSON.parse(localStorage.green)
+        const redLocalStorage = JSON.parse(localStorage.red)
+        const blueLocalStorage = JSON.parse(localStorage.blue)
+        const totalLocalStorage = JSON.parse(localStorage.total)
 
        handleSetStorage("green", totals.green, greenLocalStorage)
        handleSetStorage("red", totals.red, redLocalStorage)
        handleSetStorage("blue", totals.blue, blueLocalStorage)
+       handleSetStorage("total", totals.total, totalLocalStorage)
     }
   },[resultsComplete])
 
-  function handleSetStorage(colorString, colorTotal, colorLocalStorage) {
-    if (colorTotal === 0 ) {
-      !colorLocalStorage.zero ? colorLocalStorage.zero = 1 : colorLocalStorage.zero += 1
-    } else if (colorTotal > 0  && colorTotal < 11 ) {
-      !colorLocalStorage.ten ? colorLocalStorage.ten = 1 : colorLocalStorage.ten += 1  
-    } else if (colorTotal > 10  && colorTotal < 21 ) {
-      !colorLocalStorage.twenty ? colorLocalStorage.twenty = 1 : colorLocalStorage.twenty += 1
-    } else if (colorTotal > 20  && colorTotal < 31 ) {
-      !colorLocalStorage.thirty ? colorLocalStorage.thirty = 1 : colorLocalStorage.thirty += 1
-    } else if (colorTotal > 30  && colorTotal < 41 ) {
-      !colorLocalStorage.forty ? colorLocalStorage.forty = 1 : colorLocalStorage.forty += 1
-    } else if (colorTotal > 40  && colorTotal < 51 ) {
-      !colorLocalStorage.fifty ? colorLocalStorage.fifty = 1 : colorLocalStorage.fifty += 1
-    } else if (colorTotal > 50  && colorTotal < 61 ) {
-      !colorLocalStorage.sixty ? colorLocalStorage.sixty = 1 : colorLocalStorage.sixty += 1
-    } else if (colorTotal > 60  && colorTotal < 71 ) {
-      !colorLocalStorage.seventy ? colorLocalStorage.seventy= 1 : colorLocalStorage.seventy += 1
-    } else if (colorTotal > 70  && colorTotal < 81 ) {
-      !colorLocalStorage.eighty ? colorLocalStorage.eighty= 1 : colorLocalStorage.eighty += 1
-    } else if (colorTotal > 80  && colorTotal < 91 ) {
-      !colorLocalStorage.ninety ? colorLocalStorage.ninety = 1 : colorLocalStorage.ninety += 1
-    } else if (colorTotal > 90  && colorTotal < 101 ) {
-      !colorLocalStorage.hundred ? colorLocalStorage.hundred = 1: colorLocalStorage.hundred += 1     
-    }
-    localStorage.setItem(colorString, JSON.stringify(colorLocalStorage))
-  }
-  
   return (
     <div className="d-flex flex-column justify-content:center align-items-center pt-3">
       <h1 className="display-1 mt-2">Results</h1>

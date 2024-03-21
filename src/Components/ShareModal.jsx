@@ -3,17 +3,21 @@ import {
   FacebookIcon,
   WhatsappShareButton,
   WhatsappIcon,
-  FacebookMessengerShareButton,
-  FacebookMessengerIcon,
   TwitterIcon,
   TwitterShareButton,
   EmailIcon,
   EmailShareButton,
 } from "react-share";
 
-export default function ShareModal() {
+export default function ShareModal({totals}) {
   const shareUrl = "https://65f45726744af405e82e9a42--circletest1.netlify.app";
 
+  console.log(totals)
+
+  const messageBody = `I've played Squircles daily game\n\n🟩 ${totals.green}\n🟥 ${totals.red}\n🟦 ${totals.blue}\nTotal: ${totals.total}\n\nCheck it out!!!\n\n` 
+  const faceWhatsMessage = `I've played Squircles daily game\n\nGreen ${totals.green}\nRed ${totals.red}\nBlue ${totals.blue}\nTotal: ${totals.total}\n\nCheck it out!!!\n\n` 
+
+  console.log(messageBody)
   return (
     <div
       className="modal fade"
@@ -21,8 +25,6 @@ export default function ShareModal() {
       tabIndex="-1"
       aria-labelledby="shareModalLabel"
       aria-hidden="true"
-      data-bs-backdrop="static"
-      
     >
       <div className="modal-dialog">
         <div className="modal-content">
@@ -40,35 +42,29 @@ export default function ShareModal() {
           <div className="modal-body p-4">
             <FacebookShareButton
               url={shareUrl}
-              hashtag={"#whatAGame!"}
+              hashtag={faceWhatsMessage}
               className="p-2"
             >
               <FacebookIcon size={40} round={true} />
             </FacebookShareButton>
             <WhatsappShareButton
               url={shareUrl}
-              title={"these are the stats"}
+              title={faceWhatsMessage}
               className="p-2"
             >
               <WhatsappIcon size={40} round={true} />
             </WhatsappShareButton>
-            <FacebookMessengerShareButton
-              url={shareUrl}
-              hashtag={"#whatAGame!"}
-              className="p-2"
-            >
-              <FacebookMessengerIcon size={40} round={true} />
-            </FacebookMessengerShareButton>
             <TwitterShareButton
+              title={messageBody}
               url={shareUrl}
-              hashtag={"#whatAGame!"}
+              hashtags={["WhatAGame", "Trending", "No1Game", "MemoryGame"]}
               className="p-2"
             >
               <TwitterIcon size={40} round={true} />
             </TwitterShareButton>
             <EmailShareButton
               url={shareUrl}
-              hashtag={"#whatAGame!"}
+              body={messageBody}
               className="p-2"
             >
               <EmailIcon size={40} round={true} />
