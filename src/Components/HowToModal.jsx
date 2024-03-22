@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HowToModal() {
   return (
     <div className="modal fade" id="howToModal" tabIndex="-1" aria-labelledby="howToModalLabel" aria-hidden="true">
@@ -8,9 +10,8 @@ export default function HowToModal() {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <p>This game tests your short term memory and your spatial memory</p>
+            <p>Choose practice mode or ...</p>
             <p>Play the daily game to keep track of your score and stats</p>
-            <p>Or choose practice mode</p>
             <p>You are shown 3 squircles, green, red, and blue</p>
             <p>With just the power of your mind, no touching!!!</p>
             <p>You have 5 seconds to remember the size of the squircles</p>
@@ -18,7 +19,8 @@ export default function HowToModal() {
             <p>Press submit to see your score</p>
             <p>How close to zero can you get?</p>
           </div>
-          <div className="modal-footer">
+          <div className="modal-footer d-flex justify-content-between">
+            <Link to="https://en.wikipedia.org/wiki/Squircle"><button type="button" className="btn btn-info btn-md">Whats A Squircle?</button></Link>
             <button type="button" className="btn btn-primary btn-md" data-bs-dismiss="modal">Close</button>
           </div>
         </div>

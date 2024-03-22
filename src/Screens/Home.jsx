@@ -29,7 +29,7 @@ export default function Home({setDailyPlay, setGameId, gameId}) {
         <div className="d-flex flex-column justify-content-center align-items-center">  
             <h2 id="welcome-home" className="display-5 m-3">Welcome to</h2>
             <h1 id="title-home" className="display-1 text-decoration-underline fw-bold text-danger">SQUIRCLES!</h1>
-            <h3 className="h6 m-4 fst-italic">A short term memory game</h3>
+            <h3 className="h6 m-4 fst-italic">A short term spatial memory game</h3>
             <div id="button-container-home" className="d-flex flex-column justify-content:center">
                 <Link>
                     <button type="button" className="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#howToModal">

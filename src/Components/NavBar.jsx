@@ -20,8 +20,7 @@ export default function NavBar({setDailyPlay}) {
   return (
   
         <nav className="navbar navbar-expand fixed-top bg-body-tertiary border-bottom">
-            <div className="container-sm" >
-               
+            <div className="container-sm" >        
                 <Link className="navbar-brand" style={{fontSize:13}} to="/">
                     <div className="d-flex align-items-center">
                         <div  style={{
@@ -34,13 +33,10 @@ export default function NavBar({setDailyPlay}) {
                                 borderBottomLeftRadius: `9px`,
                                 marginRight: `3px`
                             }}>
-
                         </div>
                         <p style={{fontSize: `13px`}} className="m-0">SQUIRCLES!</p>
                    </div>
-                </Link>
-               
-                               
+                </Link>          
                 <div className="navbar-nav d-flex flex-row justify-content-center align-items-center align-text-center">
                     <Link id="nav-home" className="nav-link p-1 pt-0 " to="/" aria-current={currentPath === '/home' ? 'home page' : undefined}>{homeIcon}</Link>
                     <Link id="nav-play" className="nav-link " to="/play" aria-current={currentPath === '/play' ? 'play page' : undefined} onClick ={()=>{setDailyPlay(false)}}><p className="m-0">Practice</p></Link>
