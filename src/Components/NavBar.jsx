@@ -19,11 +19,10 @@ export default function NavBar({setDailyPlay}) {
 
   return (
   
-        <nav className="navbar navbar-expand fixed-top bg-body-tertiary">
+        <nav className="navbar navbar-expand fixed-top bg-body-tertiary border-bottom">
             <div className="container-sm" >
                
                 <Link className="navbar-brand" style={{fontSize:13}} to="/">
-                        {/* <img src={squircle} alt="Logo" width="20" height="20" className="d-inline-block align-text-center" /> */}
                     <div className="d-flex align-items-center">
                         <div  style={{
                                 backgroundColor: "#dc3545",
@@ -42,10 +41,10 @@ export default function NavBar({setDailyPlay}) {
                 </Link>
                
                                
-                <div className="navbar-nav">
-                    <Link id="nav-home" className="nav-link p-1" to="/" aria-current={currentPath === '/home' ? 'home page' : undefined}>{homeIcon}</Link>
-                    <Link id="nav-play" className="nav-link " to="/play" aria-current={currentPath === '/play' ? 'play page' : undefined} onClick ={()=>{setDailyPlay(false)}}>Practice</Link>
-                    <Link id="nav-stats" className="nav-link p-1" to="/stats" aria-current={currentPath === '/stats' ? 'stats page' : undefined}>{statsIcon}</Link>
+                <div className="navbar-nav d-flex flex-row justify-content-center align-items-center align-text-center">
+                    <Link id="nav-home" className="nav-link p-1 pt-0 " to="/" aria-current={currentPath === '/home' ? 'home page' : undefined}>{homeIcon}</Link>
+                    <Link id="nav-play" className="nav-link " to="/play" aria-current={currentPath === '/play' ? 'play page' : undefined} onClick ={()=>{setDailyPlay(false)}}><p className="m-0">Practice</p></Link>
+                    <Link id="nav-stats" className="nav-link p-1 pt-0" to="/stats" aria-current={currentPath === '/stats' ? 'stats page' : undefined}>{statsIcon}</Link>
                 </div>
             </div>
         </nav>
