@@ -8,10 +8,10 @@ export default function HowToModal() {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <p>You've already played todays game!!</p>
+              <p>You've already played todays game!!!</p>
               <p>Why not have a few practice games</p>
               <p>Or check out your stats</p>
-              <p>And Share your scores with your friends</p>
+              <p>And share your scores with your friends</p>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-primary btn-md" data-bs-dismiss="modal">Close</button>

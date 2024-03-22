@@ -21,7 +21,7 @@ export default function NavBar({setDailyPlay}) {
   
         <nav className="navbar navbar-expand fixed-top bg-body-tertiary border-bottom">
             <div className="container-sm" >        
-                <Link className="navbar-brand" style={{fontSize:13}} to="/">
+                <Link className="navbar-brand" to="/">
                     <div className="d-flex align-items-center">
                         <div  style={{
                                 backgroundColor: "#dc3545",

@@ -108,7 +108,9 @@ export default function Stats({totals}) {
             },
           ]}
           xAxis={[{
-            label: "Games"}
+            label: "Games",
+            tickMinStep: 1
+          }
           ]}
           series={[
             { data: showGreen ? greenDataArray : []},
