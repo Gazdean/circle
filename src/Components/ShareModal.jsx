@@ -24,8 +24,8 @@ export default function ShareModal() {
 
   useEffect(()=>{
     if (todaysScores) {
-      setMessageBody(`I've played Squircles daily game\n\n🟩 ${todaysScores.green}\n🟥 ${todaysScores.red}\n🟦 ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n`)
-      setfaceWhatsMessage(`I've played Squircles daily game\n\nGreen ${todaysScores.green}\nRed ${todaysScores.red}\nBlue ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n`)
+      setMessageBody(`I've played the daily Squircles game\n\n🟩 ${todaysScores.green}\n🟥 ${todaysScores.red}\n🟦 ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n`)
+      setfaceWhatsMessage(`I've played the daily Squircles game\n\nGreen ${todaysScores.green}\nRed ${todaysScores.red}\nBlue ${todaysScores.blue}\nTotal: ${todaysScores.total}\n\nCheck it out!!!\n\n`)
     } else {
       setMessageBody(`Check out this awesome game\n\nSquircles\n\nA short term memory game\n\n`)
       setfaceWhatsMessage(`Check out this awesome game\n\nSquircles\n\nA short term memory game\n\n`)

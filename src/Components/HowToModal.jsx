@@ -12,6 +12,7 @@ export default function HowToModal() {
             <p>Play the daily game to keep track of your score and stats</p>
             <p>Or choose practice mode</p>
             <p>You are shown 3 squircles, green, red, and blue</p>
+            <p>With just the power of your mind, no touching!!!</p>
             <p>You have 5 seconds to remember the size of the squircles</p>
             <p>Use the sliders to reproduce each squircle</p>
             <p>Press submit to see your score</p>
