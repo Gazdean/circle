@@ -15,7 +15,7 @@ export default function ShareModal() {
   const [messageBody, setMessageBody] = useState({})
   const [faceWhatsMessage, setfaceWhatsMessage] = useState({})
 
-  const shareUrl = "https://65fd52496148ecfa619c690f--squicklesgame.netlify.app/";
+  const shareUrl = "https:squirclesgame.com";
 
   useEffect(()=>{
     setTodaysScores(JSON.parse(localStorage.getItem("todaysScore")))

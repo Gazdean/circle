@@ -70,11 +70,22 @@ export default function Stats({totals}) {
     }
   }
 
+  function handleDailyScore(color) {
+    const scores = JSON.parse(localStorage.getItem("todaysScore"));
+    return scores[color]
+  }
+
   return (
-    <div className="d-flex flex-column justify-content:center align-items-center p-0 mt-4">
-      <h1>Your Daily Game Stats</h1>
+    <div className="d-flex flex-column justify-content:center align-items-center p-0 mt-5">
+      <h1 className="h2">Your Daily Scores/Stats</h1>
+      <div className="container mt-2" style={{ width: "360px" }}>
+            <p style={{ width: "60px" }} className="btn btn-success btn-sm m-1 col-3">{handleDailyScore("green")}</p>
+            <p style={{ width: "60px" }} className="btn btn-danger btn-sm m-1 col-3">{handleDailyScore("red")}</p>
+            <p style={{ width: "60px" }} className="btn btn-primary btn-sm m-1 col-3">{handleDailyScore("blue")}</p>   
+            <p style={{ width: "60px"}} className="btn btn-secondary btn-sm m-1 col-3">{handleDailyScore("total")}</p>
+      </div>
       <button
-        className="btn btn-success btn-lg col-6 mt-2"
+        className="btn btn-success btn-md col-6 mt-2"
         data-bs-toggle="modal"
         data-bs-target="#shareModal"
       >
@@ -85,6 +96,7 @@ export default function Stats({totals}) {
       blueDataArray.length &&
       totalDataArray.length ? (
         <BarChart
+        style={{margin: "20px"}}
           yAxis={[
             {
               scaleType: "band",
@@ -120,12 +132,12 @@ export default function Stats({totals}) {
             { data: [0]}
           ]}
           width={300}
-          height={440}
+          height={400}
           layout="horizontal"
           colors={["green", "red", "blue", "grey"]}
         />
       ) : null}
-    <div className="d-flex flex-row justify-content:center align-items-center">
+    <div className="d-flex flex-row justify-content:center align-items-center mt-2">
       <button
         style={{width: 60}}
         className="btn btn-success btn-sm col-3 me-1"
