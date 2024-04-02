@@ -20,3 +20,8 @@ Player Stories
   this can only be played once per day and is refreshed with a new game at midnight.
   The main reason for the daily play story is to keep track of the players past stats by taking advantage of local storage. 
   The stats for past games for each colour of squircle, along with past totals are displayed on a bar chart.
+
+Technologies
+ React -  Built with react vite
+ MUI X charts
+ Bootstrap - instead of using vaniila CSS i decided to use Bootstrap, which is a library i hadn't used before
