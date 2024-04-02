@@ -9,7 +9,6 @@ export default function Play({ gameDiameters, setGameDiameters, playerDiameters,
 {
   const [counter, setCounter] = useState(6);
   const [sliderVisibility, setSliderVisibility] = useState(true);
-  const [touching, setTouching] = useState(false)
  
   useEffect(() => {
     setPlayerDiameters({green:0, red:0, blue: 0})
@@ -31,7 +30,7 @@ export default function Play({ gameDiameters, setGameDiameters, playerDiameters,
       })
       setGameDiameters(dailyDiameters[0][gameId])
     }
-  }, [touching]);
+  }, []);
 
   useEffect(() => {
     if (counter > 0) {
@@ -58,7 +57,7 @@ export default function Play({ gameDiameters, setGameDiameters, playerDiameters,
         {counter > 5 ? "Lets Play" : counter ? counter : "Go"}
       </h1>
 
-      <div className="d-flex flex-column justify-content:center align-items-center p-0 m-0" onTouchStart={()=>setTouching(true)} onTouchEnd={()=>setTouching(false)}>
+      <div className="d-flex flex-column justify-content:center align-items-center p-0 m-0">
         {counter < 6 && counter > 0 ? (
           <GameCircles
             gameDiameters={gameDiameters}
