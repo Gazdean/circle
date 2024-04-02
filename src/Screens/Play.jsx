@@ -64,8 +64,7 @@ export default function Play({ gameDiameters, setGameDiameters, playerDiameters,
       <div className="d-flex flex-column justify-content:center align-items-center p-0 m-0">
         {counter < 6 && counter > 0 ? (
           <GameCircles
-            onTouchStart={()=>setTouching(true)}
-            onTouchEnd={()=>setTouching(false)}
+           setTouching={setTouching}
 
             gameDiameters={gameDiameters}
           />
