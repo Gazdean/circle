@@ -1,5 +1,7 @@
 # **Squircles Game**
 
+## The Squircle game is available at [squirclesgame.com](http://squirclesgame.com)
+
   Having just graduated from the Northcoders Software Developer bootcamp November 2023 Cohort,
   I wanted some projects to add to my CV, one of them being a small game, 
   this is Where the idea for the Squircles game came from.
@@ -27,4 +29,26 @@
  - MUI X charts 
  - Bootstrap - instead of using vaniila CSS i decided to use Bootstrap, which is a library i hadn't used before 
 
-## The Squircle game is available at [squirclesgame.com](http://squirclesgame.com)
+### Dependencies: 
+- @emotion/react: 11.11.4,
+- @emotion/styled: 11.11.0,
+- @mui/material: 5.15.12,
+- @mui/x-charts: 6.19.5,
+- @popperjs/core: 2.11.8,
+- bootstrap: 5.3.3,
+- bootstrap-icons: 1.11.3,
+- react: 18.2.0,
+- react-dom: 18.2.0,
+- react-router-dom: 6.22.3,
+- react-share: 5.1.0
+ 
+### DevDependencies: 
+- @types/react: 18.2.56,
+- @types/react-dom: 18.2.19,
+- @vitejs/plugin-react: 4.2.1,
+- eslint: 8.56.0,
+- eslint-plugin-react: 7.33.2,
+- eslint-plugin-react-hooks: 4.6.0,
+- eslint-plugin-react-refresh: 0.4.5,
+- sass: 1.71.1,
+- vite: 5.1.4
