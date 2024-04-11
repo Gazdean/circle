@@ -15,7 +15,7 @@ export default function Totals({ setPlayerDiameters, totals, dailyPlay}) {
             </button>
             <Link to={dailyPlay ? "/stats" : "/play"}>
                 <button className="btn btn-secondary btn-md m-2 col-10 p-1" onClick={()=>{setPlayerDiameters({green:0, red:0, blue: 0})}}>
-                 {dailyPlay ? "Stats" : "Play Again"}
+                 {dailyPlay ? "Stats and Share" : "Play Again"}
                 </button>
             </Link>         
         </div>

@@ -16,9 +16,9 @@ export default function ShowSliders({playerDiameters, setPlayerDiameters}) {
   return(
     <div className="d-flex flex-column justify-content:center align-items-center pt-3 me-3">
       <Box sx={{ width: "80vw", maxWidth:"400px"}}>
-        <Slider size ={"medium"} defaultValue={0} onChange={handleGreenChange} max={330} color={"success"} className="m-0 p-2"/>
-        <Slider size ={"medium"} defaultValue={0} onChange={handleRedChange} max={330} color={"error"} className="m-0 p-2"/>
-        <Slider size ={"medium"} defaultValue={0} onChange={handleBlueChange} max={330} color={"primary"} className="m-0 p-2"/>
+        <Slider size ={"medium"} defaultValue={0} onChange={handleGreenChange} max={330} color={"success"} className="mt-3 p-2"/>
+        <Slider size ={"medium"} defaultValue={0} onChange={handleRedChange} max={330} color={"error"} className="mt-3 p-2"/>
+        <Slider size ={"medium"} defaultValue={0} onChange={handleBlueChange} max={330} color={"primary"} className="mt-3 p-2"/>
       </Box>
     </div>
   )
