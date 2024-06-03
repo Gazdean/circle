@@ -1,4 +1,9 @@
+// the key is made up of the number of month and day in the month eg march 5th is 35
+// the values of green red blue are in the range 30 to 330
+
 const monthlyNumberArray = [
+
+    // March
     {31: {green:235, red:110, blue:93}},
     {32: {green:196, red:202, blue:55}},
     {33: {green:321, red:256, blue:271}},
@@ -30,7 +35,7 @@ const monthlyNumberArray = [
     {329: {green:270, red:35, blue:295}},
     {330: {green:300, red:243, blue:70}},
     {331: {green:281, red:304, blue:240}},
-
+    // April
     {41: {green:66, red:30, blue:100}},
     {42: {green:201, red:186, blue:313}},
     {43: {green:35, red:230, blue:54}},
@@ -61,7 +66,7 @@ const monthlyNumberArray = [
     {428: {green:222, red:311, blue:240}},
     {429: {green:106, red:197, blue:31}},
     {430: {green:171, red:165, blue:271}},
-
+    // May
     { 51: { green: 99, red: 131, blue: 233 } },
     { 52: { green: 245, red: 152, blue: 127 } },
     { 53: { green: 143, red: 247, blue: 235 } },
@@ -92,7 +97,71 @@ const monthlyNumberArray = [
     { 528: { green: 235, red: 218, blue: 95 } },
     { 529: { green: 213, red: 179, blue: 116 } },
     { 530: { green: 112, red: 183, blue: 250 } },
-    { 531: { green: 248, red: 86, blue: 207 } }
+    { 531: { green: 248, red: 86, blue: 207 } },
+    // June
+    { 61: { green: 120, red: 150, blue: 230 } },
+    { 62: { green: 260, red: 190, blue: 130 } },
+    { 63: { green: 90, red: 110, blue: 300 } },
+    { 64: { green: 200, red: 140, blue: 170 } },
+    { 65: { green: 310, red: 220, blue: 100 } },
+    { 66: { green: 130, red: 160, blue: 270 } },
+    { 67: { green: 240, red: 210, blue: 140 } },
+    { 68: { green: 100, red: 250, blue: 180 } },
+    { 69: { green: 280, red: 90, blue: 320 } },
+    { 610: { green: 160, red: 200, blue: 150 } },
+    { 611: { green: 220, red: 130, blue: 190 } },
+    { 612: { green: 300, red: 170, blue: 230 } },
+    { 613: { green: 150, red: 240, blue: 110 } },
+    { 614: { green: 190, red: 120, blue: 280 } },
+    { 615: { green: 140, red: 180, blue: 90 } },
+    { 616: { green: 270, red: 220, blue: 210 } },
+    { 617: { green: 100, red: 300, blue: 130 } },
+    { 618: { green: 230, red: 140, blue: 170 } },
+    { 619: { green: 110, red: 200, blue: 250 } },
+    { 620: { green: 190, red: 150, blue: 310 } },
+    { 621: { green: 270, red: 130, blue: 190 } },
+    { 622: { green: 200, red: 90, blue: 280 } },
+    { 623: { green: 130, red: 210, blue: 110 } },
+    { 624: { green: 170, red: 240, blue: 150 } },
+    { 625: { green: 120, red: 300, blue: 130 } },
+    { 626: { green: 230, red: 190, blue: 90 } },
+    { 627: { green: 180, red: 140, blue: 320 } },
+    { 628: { green: 140, red: 170, blue: 110 } },
+    { 629: { green: 90, red: 220, blue: 180 } },
+    { 630: { green: 150, red: 200, blue: 230 } },
+    // July
+    { 71: { green: 135, red: 245, blue: 90 } },
+    { 72: { green: 220, red: 180, blue: 150 } },
+    { 73: { green: 175, red: 110, blue: 240 } },
+    { 74: { green: 290, red: 200, blue: 75 } },
+    { 75: { green: 195, red: 270, blue: 140 } },
+    { 76: { green: 85, red: 160, blue: 280 } },
+    { 77: { green: 265, red: 220, blue: 170 } },
+    { 78: { green: 110, red: 245, blue: 190 } },
+    { 79: { green: 240, red: 150, blue: 210 } },
+    { 710: { green: 180, red: 190, blue: 130 } },
+    { 711: { green: 270, red: 130, blue: 250 } },
+    { 712: { green: 140, red: 215, blue: 165 } },
+    { 713: { green: 200, red: 170, blue: 290 } },
+    { 714: { green: 125, red: 230, blue: 80 } },
+    { 715: { green: 150, red: 90, blue: 195 } },
+    { 716: { green: 275, red: 140, blue: 255 } },
+    { 717: { green: 195, red: 205, blue: 110 } },
+    { 718: { green: 210, red: 125, blue: 270 } },
+    { 719: { green: 170, red: 160, blue: 200 } },
+    { 720: { green: 280, red: 130, blue: 235 } },
+    { 721: { green: 95, red: 210, blue: 145 } },
+    { 722: { green: 190, red: 250, blue: 100 } },
+    { 723: { green: 130, red: 185, blue: 230 } },
+    { 724: { green: 220, red: 110, blue: 160 } },
+    { 725: { green: 165, red: 240, blue: 210 } },
+    { 726: { green: 290, red: 175, blue: 130 } },
+    { 727: { green: 140, red: 130, blue: 250 } },
+    { 728: { green: 200, red: 215, blue: 180 } },
+    { 729: { green: 110, red: 190, blue: 270 } },
+    { 730: { green: 250, red: 105, blue: 90 } },
+    { 731: { green: 135, red: 170, blue: 240 } },
+
 ]
 
 export {monthlyNumberArray}
